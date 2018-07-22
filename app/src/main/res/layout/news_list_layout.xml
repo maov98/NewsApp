@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/newshomeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/newsHolderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/newsImage"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:contentDescription="News Image"
+            android:src="@drawable/event3"
+            android:paddingLeft="4dp"/>
+
+        <TextView
+            android:id="@+id/newsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/newsImage"
+            android:layout_toRightOf="@+id/newsImage"
+            android:contentDescription="News Header"
+            android:text="Test1"
+            android:textSize="20sp"
+            android:paddingLeft="4dp"/>
+
+        <TextView
+            android:id="@+id/newsSource"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/newsTitle"
+            android:layout_toRightOf="@+id/newsTitle"
+            android:contentDescription="News Source"
+            android:text="Test2"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
