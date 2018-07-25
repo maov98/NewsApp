@@ -4,11 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,27 +17,28 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+
 public class FetchData {
 
-    public static final String LOG_TAG = FetchData.class.getSimpleName();
-
+    private static final String LOG_TAG = FetchData.class.getSimpleName();
 
     public static ArrayList<NewsObject> fetchNewsData(String requestURL) {
 
-        URL url = createURL(requestURL);
         String jsonResponse = null;
+        URL url = createURL(requestURL);
+
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Error closing input stream", e);
+
+            Log.e(LOG_TAG,"Fetch method failed");
         }
 
-        // Extract relevant fields from the JSON response and create an {@link Event} object
-        ArrayList<NewsObject> newsObject = extractFeatureFromJson(jsonResponse);
+        String A = extractFeatureFromJson(jsonResponse).toString();
+        ArrayList<NewsObject> thisNewsObject = extractFeatureFromJson(jsonResponse);
+        int sizeArrayList = thisNewsObject.size();
 
-        // Return the {@link Event}
-        return newsObject;
-
+        return thisNewsObject;
 
     }
 
@@ -54,37 +53,36 @@ public class FetchData {
             Log.e(LOG_TAG, "Error Creating URL");
         }
 
-
         return url;
-
     }
 
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
         if (url == null) {
+
             return jsonResponse;
         }
 
         HttpURLConnection urlConnection = null;
         InputStream inputStream = null;
         try {
+
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(10000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
+            urlConnection.setReadTimeout(40000 /* milliseconds */);
+            urlConnection.setConnectTimeout(60000 /* milliseconds */);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
-            // If the request was successful (response code 200),
-            // then read the input stream and parse the response.
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
+
             } else {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the News JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -96,16 +94,9 @@ public class FetchData {
         return jsonResponse;
 
 
-
-
-
     }
 
-    /**
-     * Convert the {@link InputStream} into a String which contains the
-     * whole JSON response from the server.
-     */
-    private static String readFromStream(InputStream inputStream) throws IOException {
+    private static String readFromStream (InputStream inputStream) throws IOException {
         StringBuilder output = new StringBuilder();
         if (inputStream != null) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
@@ -119,78 +110,60 @@ public class FetchData {
         return output.toString();
     }
 
+    private static ArrayList<NewsObject> extractFeatureFromJson (String newsJason){
 
-    /**
-     * Return an {@link NewsObject} object by parsing out information
-     * about the first earthquake from the input earthquakeJSON string.
-     */
-    private static ArrayList<NewsObject> extractFeatureFromJson(String newsJSON) {
-
-        ArrayList<JSONObject> jsonObjectArrayList;
-        ArrayList<JSONObject> jsonObjectFields;
-        ArrayList<NewsObject> newsObjects;
         String title;
         String thumbnail;
         String source;
-        // If the JSON string is empty or null, then return early.
-        if (TextUtils.isEmpty(newsJSON)) {
+        ArrayList<NewsObject> newsObjects = new ArrayList<>();
+
+        if (TextUtils.isEmpty(newsJason)) {
             return null;
         }
 
         try {
-            JSONObject baseJsonResponse = new JSONObject(newsJSON);
-            JSONArray featureArray = baseJsonResponse.getJSONArray("results");
+            JSONObject baseJsonResponse = new JSONObject(newsJason);
+            JSONObject responseJasonObject = baseJsonResponse.getJSONObject("response");
+            JSONArray resultsArray = responseJasonObject.getJSONArray("results");
+            JSONObject rootJSON2;
+            JSONObject fields2;
 
-            // If there are results in the features array
-            if (featureArray.length() > 0) {
+            if (resultsArray.length() > 0) {
 
-                int size = featureArray.length();
+                int size = resultsArray.length();
 
-                jsonObjectArrayList = new ArrayList<>();
-                jsonObjectFields = new ArrayList<>();
-                newsObjects = new ArrayList<>();
+                for (int i = 0; i <= size; i++) {
 
-
-                for(int i=0;i<= size;i++){
-
-                    jsonObjectArrayList.add(featureArray.getJSONObject(i));
-                    jsonObjectFields.add(jsonObjectArrayList.get(i).getJSONObject("fields"));
-                    source = jsonObjectArrayList.get(i).getString("webUrl");
-                    thumbnail = jsonObjectFields.get(i).getString("thumbnail");
-                    title = jsonObjectFields.get(i).getString("headline");
+                    rootJSON2  = resultsArray.getJSONObject(i);
+                    fields2 = rootJSON2.getJSONObject("fields");
+                    source = fields2.getString("shortUrl");
+                    thumbnail = fields2.getString("thumbnail");
+                    title = fields2.getString("headline");
                     newsObjects.add(new NewsObject(getBitmap(thumbnail),title,source));
-
                 }
-
-                // Create a new {@link Event} object
-                return newsObjects;
             }
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);
+            Log.e(LOG_TAG, "Problem parsing the News JSON results", e);
         }
-        return null;
+        return newsObjects;
     }
 
     private static Bitmap getBitmap(String bitmapUrl){
 
         Bitmap thumbnail = null;
-        try{
+        try {
 
             InputStream in = new java.net.URL(bitmapUrl).openStream();
             thumbnail = BitmapFactory.decodeStream(in);
 
-        }catch (Exception e){
-            Log.e("URL","Error fetching thumbnail");
+        } catch (Exception e) {
+            Log.e("URL", "Error fetching thumbnail");
         }
 
         return thumbnail;
 
-
-
-
-
-
-
     }
 
 }
+
+

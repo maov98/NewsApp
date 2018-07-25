@@ -2,20 +2,13 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home">
-
-
-    <!--<android.support.design.widget.TabLayout-->
-        <!--android:id="@+id/tabs"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:paddingBottom="20dp">-->
-    <!--</android.support.design.widget.TabLayout>-->
+    tools:context=".TechnologyFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/homeRecyclerView"
+        android:id="@+id/TechnologyRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,8 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
     </android.support.v7.widget.RecyclerView>
-
 
 </android.support.constraint.ConstraintLayout>
