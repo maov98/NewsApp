@@ -40,11 +40,11 @@ public class TechnologyFragment extends Fragment implements LoaderManager.Loader
 
         Context context = getActivity();
         View view = inflater.inflate(R.layout.fragment_technology,container,false);
-        recyclerView = view.findViewById(R.id.TechnologyRecyclerView);
-//        getLoaderManager().initLoader(2,null, context).forceLoad();
-//        adapter = new NewsRecyclerViewAdapter(,arrayList);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+//        recyclerView = view.findViewById(R.id.TechnologyRecyclerView);
+////        getLoaderManager().initLoader(2,null, context).forceLoad();
+////        adapter = new NewsRecyclerViewAdapter(,arrayList);
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
         return view;
     }

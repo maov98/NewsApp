@@ -11,6 +11,9 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     ImageView newsImage;
     TextView newsTitle;
     TextView newsSource;
+    TextView newsDate;
+    TextView newsAuthor;
+
     ConstraintLayout constraintLayout;
     RelativeLayout relativeLayout;
 
@@ -19,6 +22,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         newsImage = itemView.findViewById(R.id.newsImage);
         newsTitle = itemView.findViewById(R.id.newsTitle);
         newsSource = itemView.findViewById(R.id.newsSource);
+        newsDate = itemView.findViewById(R.id.newsDate);
+        newsAuthor = itemView.findViewById(R.id.newsAuthor);
         relativeLayout = itemView.findViewById(R.id.newsHolderLayout);
         constraintLayout = itemView.findViewById(R.id.newshomeLayout);
     }

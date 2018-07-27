@@ -54,6 +54,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsViewHolder
 
 
 
+
     }
 
     @Override

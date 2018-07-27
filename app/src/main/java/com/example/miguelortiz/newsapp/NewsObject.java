@@ -7,12 +7,16 @@ public class NewsObject {
     Bitmap newsImage;
     String newsTitle;
     String newsSource;
+    String datePublished;
+    String articleAuthor;
 
-    public NewsObject(Bitmap image, String title, String source){
+    public NewsObject(Bitmap image, String title, String source, String date, String author){
 
         newsImage = image;
         newsTitle = title;
         newsSource = source;
+        datePublished = date;
+        articleAuthor = author;
 
     }
 
@@ -31,6 +35,18 @@ public class NewsObject {
     public String getSource(){
 
         return newsSource;
+
+    }
+
+    public String getAuthor(){
+
+        return articleAuthor;
+
+    }
+
+    public String getDate(){
+
+        return datePublished;
 
     }
 

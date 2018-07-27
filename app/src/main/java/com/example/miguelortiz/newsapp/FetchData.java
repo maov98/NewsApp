@@ -115,6 +115,8 @@ public class FetchData {
         String title;
         String thumbnail;
         String source;
+        String dateField = "";
+        String author = "";
         ArrayList<NewsObject> newsObjects = new ArrayList<>();
 
         if (TextUtils.isEmpty(newsJason)) {
@@ -126,7 +128,9 @@ public class FetchData {
             JSONObject responseJasonObject = baseJsonResponse.getJSONObject("response");
             JSONArray resultsArray = responseJasonObject.getJSONArray("results");
             JSONObject rootJSON2;
+            JSONObject rootJSON3;
             JSONObject fields2;
+            JSONArray tagsArray;
 
             if (resultsArray.length() > 0) {
 
@@ -135,11 +139,17 @@ public class FetchData {
                 for (int i = 0; i <= size; i++) {
 
                     rootJSON2  = resultsArray.getJSONObject(i);
+                    dateField = rootJSON2.getString("webPublicationDate");
                     fields2 = rootJSON2.getJSONObject("fields");
+                    String test1 = dateField;
+
+//                    tagsArray = rootJSON2.getJSONArray("tags");
+//                    rootJSON3 = tagsArray.getJSONObject(i);
+//                    author = rootJSON3.getString("webTitle");
                     source = fields2.getString("shortUrl");
                     thumbnail = fields2.getString("thumbnail");
                     title = fields2.getString("headline");
-                    newsObjects.add(new NewsObject(getBitmap(thumbnail),title,source));
+                    newsObjects.add(new NewsObject(getBitmap(thumbnail),title,source,dateField,author));
                 }
             }
         } catch (JSONException e) {

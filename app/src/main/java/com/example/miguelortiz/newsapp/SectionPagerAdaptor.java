@@ -1,7 +1,6 @@
 package com.example.miguelortiz.newsapp;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -49,10 +48,10 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return technologyTab;
+                return politicsTab;
 
             case 1:
-                return politicsTab;
+                return technologyTab;
 
             case 2:
                 return entertainmentTab;
@@ -67,21 +66,22 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
-//                return new TechnologyFragment();
 
-//            case 1:
-//                return new RestaurantFragment();
-//
-//            case 2:
-//                return new HotelsFragment();
-//
-//            case 3:
-//                return new EventFragment();
+
+            case 0:
+                return new PoliticsFragment();
+
+            case 1:
+                return new PoliticsFragment();
+
+            case 2:
+                return new PoliticsFragment();
+
+
 
             default:
 
-                return null;
+                return new Fragment();
         }
     }
 }

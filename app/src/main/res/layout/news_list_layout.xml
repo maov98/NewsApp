@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/newsHolderLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -25,7 +25,7 @@
         <TextView
             android:id="@+id/newsTitle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/newsImage"
             android:layout_toRightOf="@+id/newsImage"
             android:contentDescription="News Header"
@@ -36,10 +36,36 @@
         <TextView
             android:id="@+id/newsSource"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toEndOf="@+id/newsTitle"
-            android:layout_toRightOf="@+id/newsTitle"
+            android:layout_height="wrap_content"
             android:contentDescription="News Source"
+            android:layout_toEndOf="@+id/newsImage"
+            android:layout_toRightOf="@+id/newsImage"
+            android:layout_below="@+id/newsTitle"
+            android:text="Test2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/newsAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Author"
+            android:layout_toEndOf="@+id/newsImage"
+            android:layout_toRightOf="@+id/newsImage"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/newsSource"
+            android:text="Test2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/newsDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Date"
+            android:layout_toEndOf="@+id/newsAuthor"
+            android:layout_toRightOf="@+id/newsAuthor"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/newsSource"
+            android:paddingLeft="@dimen/normalPaddingValue"
             android:text="Test2"
             android:textSize="20sp" />
 
