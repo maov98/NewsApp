@@ -1,11 +1,80 @@
 <resources>
 
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    
+    <style name="newsTitle">
+        
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">NewsTitle</item>
+        <item name="android:text">@string/title</item>
+        <item name="android:textSize">@dimen/newsTitleFontSize</item>
+        <item name="android:paddingLeft">@dimen/reducedPadding</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="newsDate">
+
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">NewsDate</item>
+        <item name="android:text">@string/date</item>
+        <item name="android:textSize">@dimen/newsOtherFontSize</item>
+        <item name="android:textColor">@color/dateFontColor</item>
+        <item name="android:paddingLeft">@dimen/reducedPadding</item>
+
+    </style>
+
+    <style name="newsSource">
+
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">NewsSource</item>
+        <item name="android:text">@string/source</item>
+        <item name="android:textSize">@dimen/newsOtherFontSize</item>
+        <item name="android:textColor">@color/sourceFontColor</item>
+        <item name="android:paddingLeft">@dimen/reducedPadding</item>
+
+    </style>
+
+    <style name="newsAuthor">
+
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">NewsAuthor</item>
+        <item name="android:text">@string/author</item>
+        <item name="android:textSize">@dimen/newsOtherFontSize</item>
+        <item name="android:textColor">@color/authorFontColor</item>
+        <item name="android:paddingLeft">@dimen/reducedPadding</item>
+        <item name="android:paddingRight">@dimen/reducedPadding</item>
+
+    </style>
+
+    <style name="newsImage">
+
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:layout_width">@dimen/newsIconSize</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">Thumbail</item>
+        <item name="android:text">@string/author</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginRight">@dimen/generalMargin</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:textSize">@dimen/newsOtherFontSize</item>
+        <item name="android:textColor">@color/authorFontColor</item>
+        <item name="android:paddingLeft">@dimen/reducedPadding</item>
+
     </style>
 
 </resources>

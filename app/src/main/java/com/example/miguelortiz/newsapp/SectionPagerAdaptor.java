@@ -15,7 +15,7 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
     private Context context;
     private String technologyTab;
     private String politicsTab;
-    private String entertainmentTab;
+    private String sportsTab;
     private String tab4;
 
     public SectionPagerAdaptor(FragmentManager fm, Context context) {
@@ -23,18 +23,13 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
         this.context = context;
         technologyTab = context.getString(R.string.technologylabel);
         politicsTab = context.getString(R.string.politicsLabel);
-        entertainmentTab = context.getString(R.string.entertainmentLabel);
-
+        sportsTab = context.getString(R.string.sportsLabel);
     }
 
-
     public void addFragment(Fragment fragment, String title) {
-
-
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
     }
-
 
     @Override
     public int getCount() {
@@ -54,10 +49,8 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
                 return technologyTab;
 
             case 2:
-                return entertainmentTab;
+                return sportsTab;
 
-//            case 3:
-//                return ltab4;
         }
 
         return null;
@@ -72,16 +65,14 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
                 return new PoliticsFragment();
 
             case 1:
-                return new PoliticsFragment();
+                return new TecnologyFragment();
 
             case 2:
-                return new PoliticsFragment();
-
-
+                return new SportsFragment();
 
             default:
 
-                return new Fragment();
+                return new PoliticsFragment();
         }
     }
 }

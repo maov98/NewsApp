@@ -2,7 +2,7 @@
 <resources>
 
     <dimen name="pictureIconSize">70dp</dimen>
-    <dimen name="actionIconSize">50dp</dimen>
+    <dimen name="newsIconSize">150dp</dimen>
     <dimen name="normalPaddingValue">10dp</dimen>
     <dimen name="itemListTextLength">150dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
@@ -15,5 +15,8 @@
     <dimen name="reducedPadding">5dp</dimen>
     <dimen name="detailFragmentTextSize">20sp</dimen>
     <dimen name="xxpadding">50dp</dimen>
+    <dimen name="newsTitleFontSize">25sp</dimen>
+    <dimen name="newsOtherFontSize">20sp</dimen>
+    <dimen name="generalMargin">25dp</dimen>
 
 </resources>

@@ -92,8 +92,6 @@ public class FetchData {
             }
         }
         return jsonResponse;
-
-
     }
 
     private static String readFromStream (InputStream inputStream) throws IOException {
@@ -132,24 +130,30 @@ public class FetchData {
             JSONObject fields2;
             JSONArray tagsArray;
 
+
             if (resultsArray.length() > 0) {
 
                 int size = resultsArray.length();
 
-                for (int i = 0; i <= size; i++) {
+                for (int i = 0; i < size; i++) {
 
                     rootJSON2  = resultsArray.getJSONObject(i);
                     dateField = rootJSON2.getString("webPublicationDate");
                     fields2 = rootJSON2.getJSONObject("fields");
-                    String test1 = dateField;
+                    tagsArray = rootJSON2.getJSONArray("tags");
+                    if(tagsArray.length()>0){
+                        rootJSON3 = tagsArray.getJSONObject(0);
+                        author = rootJSON3.getString("webTitle");
+                    }
+                    else {
+                        author="";
+                    }
 
-//                    tagsArray = rootJSON2.getJSONArray("tags");
-//                    rootJSON3 = tagsArray.getJSONObject(i);
-//                    author = rootJSON3.getString("webTitle");
                     source = fields2.getString("shortUrl");
                     thumbnail = fields2.getString("thumbnail");
                     title = fields2.getString("headline");
-                    newsObjects.add(new NewsObject(getBitmap(thumbnail),title,source,dateField,author));
+                    String trimmedDate = dateField.substring(0,10);
+                    newsObjects.add(new NewsObject(getBitmap(thumbnail),title,source,trimmedDate,author));
                 }
             }
         } catch (JSONException e) {
