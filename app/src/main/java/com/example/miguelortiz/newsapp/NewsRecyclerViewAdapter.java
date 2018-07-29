@@ -2,7 +2,6 @@ package com.example.miguelortiz.newsapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -20,8 +19,6 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsViewHolder
     private String sourceField;
     private String authorField;
     Intent i = new Intent(Intent.ACTION_VIEW);
-
-
 
     public NewsRecyclerViewAdapter(Context context,ArrayList<NewsObject> newsArray) {
 
@@ -45,7 +42,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsViewHolder
 
     public void cleanArray(){
 
-        this.newsArray.clear();
+        //this.newsArray.clear();
     }
 
     @NonNull

@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".home">
 
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:id="@+id/politicsProgressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="183dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/politicsRecyclerView"
         android:layout_width="0dp"

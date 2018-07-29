@@ -17,7 +17,6 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-
 public class FetchData {
 
     private static final String LOG_TAG = FetchData.class.getSimpleName();
@@ -175,7 +174,6 @@ public class FetchData {
         }
 
         return thumbnail;
-
     }
 
 }

@@ -1,4 +1,5 @@
 package com.example.miguelortiz.newsapp;
+
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

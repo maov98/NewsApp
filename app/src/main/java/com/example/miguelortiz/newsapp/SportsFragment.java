@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -21,19 +22,25 @@ public class SportsFragment extends Fragment implements LoaderManager.LoaderCall
     RecyclerView recyclerView;
     String urlSearch = "https://content.guardianapis.com/search?q=sports&format=json&from-date=2018-07-19&show-fields=headline,thumbnail,short-url&show-tags=contributor&show-refinements=all&order-date=published&order-by=newest&show-elements=image&api-key=3726085a-e013-4212-8ae5-2811e39ebba2";
     Context context;
+    private ProgressBar spinner;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        context = getActivity();
+        getLoaderManager().initLoader(3,null, this).forceLoad();
+
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        context = inflater.getContext();
         View view = inflater.inflate(R.layout.fragment_sports,container,false);
-        getLoaderManager().initLoader(1,null, this).forceLoad();
-        recyclerView = view.findViewById(R.id.entertainmentRecyclerView);
+        recyclerView = view.findViewById(R.id.sportsRecyclerView);
         adapter = new NewsRecyclerViewAdapter(context,arrayList);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
+        spinner = (ProgressBar) view.findViewById(R.id.sportsProgressBar);
         return view;
     }
 
@@ -48,7 +55,9 @@ public class SportsFragment extends Fragment implements LoaderManager.LoaderCall
     public void onLoadFinished(@NonNull android.support.v4.content.Loader<ArrayList<NewsObject>> loader, ArrayList<NewsObject> data) {
 
         adapter.updateData(data);
-
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        spinner.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -56,8 +65,5 @@ public class SportsFragment extends Fragment implements LoaderManager.LoaderCall
         adapter.cleanArray();
 
     }
-
-
-
 
 }
