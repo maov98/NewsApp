@@ -5,13 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SectionPagerAdaptor extends FragmentPagerAdapter {
 
-    private List<Fragment> mFragmentList = new ArrayList<>();
-    private List<String> mFragmentTitleList = new ArrayList<>();
     private Context context;
     private String technologyTab;
     private String politicsTab;
@@ -74,10 +70,6 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
         return new noConnectionFragment();
 
         }
-
-
-
-
 
         return null;
     }
