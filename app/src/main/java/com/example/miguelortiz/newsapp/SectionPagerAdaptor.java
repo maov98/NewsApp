@@ -21,7 +21,6 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
         politicsTab = context.getString(R.string.politicsLabel);
         sportsTab = context.getString(R.string.sportsLabel);
         validConnection = internetConnection;
-
     }
 
     @Override
@@ -48,7 +47,6 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
 
         if(validConnection == true){
 
