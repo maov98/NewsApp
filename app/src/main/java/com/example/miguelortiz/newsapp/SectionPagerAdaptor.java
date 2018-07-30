@@ -16,13 +16,16 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
     private String technologyTab;
     private String politicsTab;
     private String sportsTab;
+    private boolean validConnection;
 
-    public SectionPagerAdaptor(FragmentManager fm, Context context) {
+    public SectionPagerAdaptor(FragmentManager fm, Context context, boolean internetConnection) {
         super(fm);
         this.context = context;
         technologyTab = context.getString(R.string.technologylabel);
         politicsTab = context.getString(R.string.politicsLabel);
         sportsTab = context.getString(R.string.sportsLabel);
+        validConnection = internetConnection;
+
     }
 
     @Override
@@ -49,18 +52,32 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
 
 
-            case 0:
-                return new PoliticsFragment();
+        if(validConnection == true){
 
-            case 1:
-                return new TecnologyFragment();
+            switch (position) {
 
-            case 2:
-                return new SportsFragment();
+
+                case 0:
+                    return new PoliticsFragment();
+
+                case 1:
+                    return new TecnologyFragment();
+
+                case 2:
+                    return new SportsFragment();
+            }
+
+        } else {
+
+        return new noConnectionFragment();
+
         }
+
+
+
+
 
         return null;
     }
