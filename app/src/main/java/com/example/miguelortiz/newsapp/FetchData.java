@@ -33,9 +33,7 @@ public class FetchData {
             Log.e(LOG_TAG,"Fetch method failed");
         }
 
-        String A = extractFeatureFromJson(jsonResponse).toString();
         ArrayList<NewsObject> thisNewsObject = extractFeatureFromJson(jsonResponse);
-        int sizeArrayList = thisNewsObject.size();
 
         return thisNewsObject;
 

@@ -30,19 +30,16 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsViewHolder
 
     }
 
-    public void updateData(ArrayList<NewsObject> updatedArray){
+    public boolean updateData(ArrayList<NewsObject> updatedArray){
 
         this.newsArray = updatedArray;
-    }
+        return newsArray.isEmpty();
 
-    public void clearData(ArrayList<NewsObject> updatedArray){
-
-        this.newsArray.clear();
     }
 
     public void cleanArray(){
 
-        //this.newsArray.clear();
+        this.newsArray.clear();
     }
 
     @NonNull

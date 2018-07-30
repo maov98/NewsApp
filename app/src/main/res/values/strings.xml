@@ -10,5 +10,6 @@
     <string name="source">Source:</string>
     <string name="title">Title</string>
     <string name="noInternetConnection">There is not an available network connection. Data could not be loaded!</string>
+    <string name="noData">No available data</string>
 
 </resources>

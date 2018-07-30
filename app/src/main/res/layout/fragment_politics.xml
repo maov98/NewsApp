@@ -28,4 +28,18 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <TextView
+        android:id="@+id/noDataTextViewPolitics"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="324dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/noData"
+        android:textColor="@color/authorFontColor"
+        android:textSize="@dimen/newsTitleFontSize"
+        android:textAlignment="center"
+        android:visibility="invisible"/>
+
 </android.support.constraint.ConstraintLayout>
