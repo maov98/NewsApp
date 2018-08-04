@@ -140,15 +140,15 @@ public class FetchData {
                     tagsArray = rootJSON2.getJSONArray("tags");
                     if(tagsArray.length()>0){
                         rootJSON3 = tagsArray.getJSONObject(0);
-                        author = rootJSON3.getString("webTitle");
+                        author = rootJSON3.optString("webTitle");
                     }
                     else {
                         author="";
                     }
 
-                    source = fields2.getString("shortUrl");
-                    thumbnail = fields2.getString("thumbnail");
-                    title = fields2.getString("headline");
+                    source = fields2.optString("shortUrl");
+                    thumbnail = fields2.optString("thumbnail");
+                    title = fields2.optString("headline");
                     String trimmedDate = dateField.substring(0,10);
                     newsObjects.add(new NewsObject(getBitmap(thumbnail),title,source,trimmedDate,author));
                 }

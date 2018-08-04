@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Preferences"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <MultiSelectListPreference
+        android:title="News Categories to Display"
+        android:key="listPreference"
+        android:entries="@array/listArray"
+        android:entryValues="@array/listValues"
+        >
+
+    </MultiSelectListPreference>
+
+
+</PreferenceScreen>

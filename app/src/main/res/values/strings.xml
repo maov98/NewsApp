@@ -1,15 +1,22 @@
 <resources>
-    <string name="app_name">NewsApp</string>
 
+    <string name="app_name">NewsApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="technologylabel">technology</string>
-    <string name="politicsLabel">politics</string>
-    <string name="sportsLabel">sports</string>
+    <string name="technologylabel">Technology</string>
+    <string name="politicsLabel">Politics</string>
+    <string name="sportsLabel">Sports</string>
+    <string name="religionLabel">Religion</string>
+    <string name="scienceLabel">Science</string>
     <string name="author">Author: </string>
     <string name="date">Date:</string>
     <string name="source">Source:</string>
     <string name="title">Title</string>
     <string name="noInternetConnection">There is not an available network connection. Data could not be loaded!</string>
     <string name="noData">No available data</string>
+    <string name="settings_menu_item">Settings</string>
+    <string name="setting_title">App Settings</string>
+    <string name="settings_min_magnitude_label">Minimum Magnitude</string>
+    <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
+    <string name="settings_min_magnitude_default" translatable="false">0</string>
 
 </resources>

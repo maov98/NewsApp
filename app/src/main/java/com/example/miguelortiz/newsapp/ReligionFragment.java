@@ -14,36 +14,33 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
 import java.util.ArrayList;
 
-public class SportsFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<NewsObject>> {
+public class ReligionFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<NewsObject>> {
 
     ArrayList<NewsObject> arrayList = new ArrayList<NewsObject>();
     NewsRecyclerViewAdapter adapter;
     RecyclerView recyclerView;
-    boolean emptyArray;
-    String urlSearch = "https://content.guardianapis.com/search?q=sports&format=json&from-date=2018-07-25&show-fields=headline,thumbnail,short-url&show-tags=contributor&show-refinements=all&order-date=published&order-by=newest&show-elements=image&api-key=3726085a-e013-4212-8ae5-2811e39ebba2";
+    String urlSearch = "https://content.guardianapis.com/search?q=religion&format=json&from-date=2018-07-25&show-fields=headline,thumbnail,short-url&show-tags=contributor&show-refinements=all&order-date=published&order-by=newest&show-elements=image&api-key=3726085a-e013-4212-8ae5-2811e39ebba2";
     Context context;
     private ProgressBar spinner;
+    boolean emptyArray;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getActivity();
-        getLoaderManager().initLoader(3,null, this).forceLoad();
-
-
+        getLoaderManager().initLoader(2,null, this).forceLoad();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_sports,container,false);
-        recyclerView = view.findViewById(R.id.sportsRecyclerView);
+        View view = inflater.inflate(R.layout.fragment_religion,container,false);
+        recyclerView = view.findViewById(R.id.religionRecyclerView);
         adapter = new NewsRecyclerViewAdapter(context,arrayList);
-        spinner = view.findViewById(R.id.sportsProgressBar);
+        spinner = view.findViewById(R.id.religionProgressBar);
         return view;
     }
 
@@ -57,7 +54,6 @@ public class SportsFragment extends Fragment implements LoaderManager.LoaderCall
     @Override
     public void onLoadFinished(@NonNull android.support.v4.content.Loader<ArrayList<NewsObject>> loader, ArrayList<NewsObject> data) {
 
-
         if (data != null){
             emptyArray = adapter.updateData(data);
             recyclerView.setAdapter(adapter);
@@ -66,13 +62,13 @@ public class SportsFragment extends Fragment implements LoaderManager.LoaderCall
 
         } else {
 
-            TextView view = getView().findViewById(R.id.noDataTextViewSports);
+            TextView view = getView().findViewById(R.id.noDataTextViewReligion);
             recyclerView.setVisibility(View.INVISIBLE);
             spinner.setVisibility(View.INVISIBLE);
             view.setVisibility(View.VISIBLE);
 
         }
-            }
+    }
 
     @Override
     public void onLoaderReset(@NonNull android.support.v4.content.Loader<ArrayList<NewsObject>> loader) {

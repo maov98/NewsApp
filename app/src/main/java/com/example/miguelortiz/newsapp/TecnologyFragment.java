@@ -20,7 +20,7 @@ public class TecnologyFragment extends Fragment implements LoaderManager.LoaderC
     ArrayList<NewsObject> arrayList = new ArrayList<NewsObject>();
     NewsRecyclerViewAdapter adapter;
     RecyclerView recyclerView;
-    String urlSearch = "https://content.guardianapis.com/search?q=technology&format=json&from-date=2018-07-19&show-fields=headline,thumbnail,short-url&show-tags=contributor&show-refinements=all&order-date=published&order-by=newest&show-elements=image&api-key=3726085a-e013-4212-8ae5-2811e39ebba2";
+    String urlSearch = "https://content.guardianapis.com/search?q=technology,tech&format=json&from-date=2018-07-25&show-fields=headline,thumbnail,short-url&show-tags=contributor&show-refinements=all&order-date=published&order-by=newest&show-elements=image&api-key=3726085a-e013-4212-8ae5-2811e39ebba2";
     Context context;
     private ProgressBar spinner;
     boolean emptyArray;

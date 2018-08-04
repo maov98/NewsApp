@@ -75,6 +75,8 @@
         <item name="android:textColor">@color/authorFontColor</item>
         <item name="android:paddingLeft">@dimen/reducedPadding</item>
         <item name="android:layout_centerVertical">true</item>
+        <item name="android:src">@drawable/no_image</item>
+
 
     </style>
 
