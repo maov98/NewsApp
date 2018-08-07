@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ScienceFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<NewsObject>> {
+public class GeneralFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<NewsObject>> {
 
     ArrayList<NewsObject> arrayList = new ArrayList<NewsObject>();
     NewsRecyclerViewAdapter adapter;
     RecyclerView recyclerView;
-    String urlSearch = "https://content.guardianapis.com/search?q=science&show-fields=headline,thumbnail,short-url";
+    String urlSearch = "https://content.guardianapis.com/search?q=general&show-fields=headline,thumbnail,short-url";
     Context context;
     private ProgressBar spinner;
     boolean emptyArray;
@@ -34,16 +35,17 @@ public class ScienceFragment extends Fragment implements LoaderManager.LoaderCal
         super.onCreate(savedInstanceState);
         context = getActivity();
         getLoaderManager().initLoader(2,null, this).forceLoad();
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_science,container,false);
-        recyclerView = view.findViewById(R.id.scienceRecyclerView);
+        View view = inflater.inflate(R.layout.fragment_general,container,false);
+        recyclerView = view.findViewById(R.id.generalRecyclerView);
         adapter = new NewsRecyclerViewAdapter(context,arrayList);
-        spinner = view.findViewById(R.id.scienceProgressBar);
+        spinner = view.findViewById(R.id.generalProgressBar);
         return view;
     }
 
@@ -77,7 +79,7 @@ public class ScienceFragment extends Fragment implements LoaderManager.LoaderCal
 
         } else {
 
-            TextView view = getView().findViewById(R.id.noDataTextViewScience);
+            TextView view = getView().findViewById(R.id.noDataTextViewTechnology);
             recyclerView.setVisibility(View.INVISIBLE);
             spinner.setVisibility(View.INVISIBLE);
             view.setVisibility(View.VISIBLE);

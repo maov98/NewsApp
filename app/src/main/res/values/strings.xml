@@ -18,5 +18,12 @@
     <string name="settings_min_magnitude_label">Minimum Magnitude</string>
     <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
     <string name="settings_min_magnitude_default" translatable="false">0</string>
+    <string name="listPreference" translatable="false">listPreference</string>
+    <string name="newsDate" translatable="false">newsDate</string>
+    <string name="listArray" translatable="false">listArray</string>
+    <string name="defaultDate">2018-07-25</string>
+    <string name="APIkey">3726085a-e013-4212-8ae5-2811e39ebba2</string>
+    <string name="generalNews">General</string>
+
 
 </resources>

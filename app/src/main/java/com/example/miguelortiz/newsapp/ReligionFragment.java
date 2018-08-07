@@ -1,7 +1,10 @@
 package com.example.miguelortiz.newsapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,7 +24,7 @@ public class ReligionFragment extends Fragment implements LoaderManager.LoaderCa
     ArrayList<NewsObject> arrayList = new ArrayList<NewsObject>();
     NewsRecyclerViewAdapter adapter;
     RecyclerView recyclerView;
-    String urlSearch = "https://content.guardianapis.com/search?q=religion&format=json&from-date=2018-07-25&show-fields=headline,thumbnail,short-url&show-tags=contributor&show-refinements=all&order-date=published&order-by=newest&show-elements=image&api-key=3726085a-e013-4212-8ae5-2811e39ebba2";
+    String urlSearch = "https://content.guardianapis.com/search?q=religion&show-fields=headline,thumbnail,short-url";
     Context context;
     private ProgressBar spinner;
     boolean emptyArray;
@@ -48,7 +51,19 @@ public class ReligionFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public android.support.v4.content.Loader<ArrayList<NewsObject>> onCreateLoader(int id, @Nullable Bundle args) {
 
-        return new NewsLoader(getActivity(),urlSearch);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String queryDate = sharedPreferences.getString(context.getString(R.string.newsDate),null);
+        Uri baseurl = Uri.parse(urlSearch);
+        Uri.Builder uriBuilder = baseurl.buildUpon();
+        uriBuilder.appendQueryParameter("format","json");
+        uriBuilder.appendQueryParameter("from-date",queryDate);
+        uriBuilder.appendQueryParameter("show-tags","contributors");
+        uriBuilder.appendQueryParameter("show-refinements","all");
+        uriBuilder.appendQueryParameter("order-by","newest");
+        uriBuilder.appendQueryParameter("api-key",context.getString(R.string.APIkey));
+        String urlSearch3 = uriBuilder.toString();
+
+        return new NewsLoader(getActivity(),urlSearch3);
     }
 
     @Override

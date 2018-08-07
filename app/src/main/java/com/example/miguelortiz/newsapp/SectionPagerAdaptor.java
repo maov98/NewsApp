@@ -24,6 +24,7 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
     private String sportsTab;
     private String religionTab;
     private String scienceTab;
+    private String generalTab;
     private boolean validConnection;
     private String[] tabList;
     private SharedPreferences sharedPreferences;
@@ -44,13 +45,14 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
         sportsTab = context.getString(R.string.sportsLabel);
         religionTab = context.getString(R.string.religionLabel);
         scienceTab = context.getString(R.string.scienceLabel);
+        generalTab = context.getString(R.string.generalNews);
         tabList = new String[]{politicsTab,sportsTab,technologyTab,scienceTab,religionTab,politicsTab};
         defaultval.add(politicsTab);
         defaultval.add(technologyTab);
         defaultval.add(sportsTab);
         validConnection = internetConnection;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        selections = sharedPreferences.getStringSet("listPreference",null);
+        selections = sharedPreferences.getStringSet(context.getString(R.string.listPreference),null);
 
         if(selections!=null){
             selected = selections.toArray(new String[]{});
@@ -61,7 +63,7 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
             currentNumPages = 1;
         }
 
-        holderint = context.getResources().getIdentifier("listArray","array",context.getPackageName());
+        holderint = context.getResources().getIdentifier(context.getString(R.string.listArray),"array",context.getPackageName());
         maxsections = context.getResources().getStringArray(holderint);
         maxNumPages = maxsections.length;
         selectedInteger = new int[maxNumPages+1];
@@ -128,7 +130,7 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
 
             default:
 
-                return politicsTab;
+                return generalTab;
         }
     }
 
@@ -286,7 +288,7 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
 
                 default:
 
-                    return new PoliticsFragment();
+                    return new GeneralFragment();
             }
 
         } else {

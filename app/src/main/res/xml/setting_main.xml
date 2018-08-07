@@ -7,12 +7,23 @@
 
     <MultiSelectListPreference
         android:title="News Categories to Display"
-        android:key="listPreference"
+        android:key="@string/listPreference"
         android:entries="@array/listArray"
-        android:entryValues="@array/listValues"
-        >
+        android:entryValues="@array/listValues">
 
     </MultiSelectListPreference>
+
+    <EditTextPreference
+
+        android:title="Set Date for News Query"
+        android:key="@string/newsDate"
+        android:inputType="date"
+        android:selectAllOnFocus="true"
+        >
+
+
+
+    </EditTextPreference>
 
 
 </PreferenceScreen>
