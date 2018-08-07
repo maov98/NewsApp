@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,13 +58,14 @@ public class ReligionFragment extends Fragment implements LoaderManager.LoaderCa
         Uri.Builder uriBuilder = baseurl.buildUpon();
         uriBuilder.appendQueryParameter("format","json");
         uriBuilder.appendQueryParameter("from-date",queryDate);
-        uriBuilder.appendQueryParameter("show-tags","contributors");
+        uriBuilder.appendQueryParameter("show-tags","contributor");
         uriBuilder.appendQueryParameter("show-refinements","all");
         uriBuilder.appendQueryParameter("order-by","newest");
         uriBuilder.appendQueryParameter("api-key",context.getString(R.string.APIkey));
         String urlSearch3 = uriBuilder.toString();
 
         return new NewsLoader(getActivity(),urlSearch3);
+
     }
 
     @Override
