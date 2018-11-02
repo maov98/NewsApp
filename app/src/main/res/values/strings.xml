@@ -24,6 +24,7 @@
     <string name="defaultDate">2018-07-25</string>
     <string name="APIkey">3726085a-e013-4212-8ae5-2811e39ebba2</string>
     <string name="generalNews">General</string>
+    <string name="newsImageLabel">News Image</string>
 
 
 </resources>

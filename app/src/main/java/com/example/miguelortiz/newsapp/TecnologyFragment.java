@@ -58,7 +58,7 @@ public class TecnologyFragment extends Fragment implements LoaderManager.LoaderC
         Uri.Builder uriBuilder = baseurl.buildUpon();
         uriBuilder.appendQueryParameter("format","json");
         uriBuilder.appendQueryParameter("from-date",queryDate);
-        uriBuilder.appendQueryParameter("show-tags","contributor");
+        uriBuilder.appendQueryParameter("show-tags","contributors");
         uriBuilder.appendQueryParameter("show-refinements","all");
         uriBuilder.appendQueryParameter("order-by","newest");
         uriBuilder.appendQueryParameter("api-key",context.getString(R.string.APIkey));

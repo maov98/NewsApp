@@ -58,9 +58,25 @@ public class SectionPagerAdaptor extends FragmentPagerAdapter {
             selected = selections.toArray(new String[]{});
             Arrays.sort(selected);
             currentNumPages = selected.length;
+            for(int m=0;m<selected.length;m++){
+
+                if(selected[m].equals(politicsTab)){
+                    selected[m] = "100";
+                } else if(selected[m].equals(sportsTab)){
+                    selected[m] = "200";
+                }else if(selected[m].equals(technologyTab)){
+                    selected[m] = "300";
+                }else if(selected[m].equals(scienceTab)){
+                    selected[m] = "400";
+                }else if(selected[m].equals(religionTab)){
+                    selected[m] = "500";
+                }
+
+            }
         }
         else {
             currentNumPages = 1;
+            selected = new String[]{"600"};
         }
 
         holderint = context.getResources().getIdentifier(context.getString(R.string.listArray),"array",context.getPackageName());

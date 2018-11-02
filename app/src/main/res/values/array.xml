@@ -11,27 +11,19 @@
 
     </string-array>
 
-
-
-
     <string-array name="listValues">
 
-        <item> 100</item>
-        <item> 200</item>
-        <item> 300</item>
-        <item> 400</item>
-        <item> 500</item>
+        <item> Politics</item>
+        <item> Sports</item>
+        <item> Technology</item>
+        <item> Science</item>
+        <item> Religion</item>
 
     </string-array>
 
     <string-array name="defaultArray">
 
-        <item> 100</item>
-        <item> 200</item>
-        <item> 300</item>
-        <item> 400</item>
-        <item> 500</item>
-
+        <item> Politics</item>
 
 
     </string-array>

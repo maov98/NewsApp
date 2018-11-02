@@ -9,7 +9,8 @@
         android:title="News Categories to Display"
         android:key="@string/listPreference"
         android:entries="@array/listArray"
-        android:entryValues="@array/listValues">
+        android:entryValues="@array/listValues"
+        android:defaultValue="@array/defaultArray">
 
     </MultiSelectListPreference>
 
@@ -19,10 +20,7 @@
         android:key="@string/newsDate"
         android:inputType="date"
         android:selectAllOnFocus="true"
-        >
-
-
-
+        android:defaultValue="@string/defaultDate">
     </EditTextPreference>
 
 

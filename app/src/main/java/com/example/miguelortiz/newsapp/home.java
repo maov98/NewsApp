@@ -2,6 +2,7 @@ package com.example.miguelortiz.newsapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class home extends AppCompatActivity {
         mviewPager.setAdapter(new SectionPagerAdaptor(getSupportFragmentManager(), this,networkStatus));
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mviewPager);
+
     }
 
     @Override

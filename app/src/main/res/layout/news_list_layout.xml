@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/newsImage"
-            android:contentDescription="News Image"
+            android:contentDescription="@string/newsImageLabel"
             style="@style/newsImage"/>
 
         <TextView
